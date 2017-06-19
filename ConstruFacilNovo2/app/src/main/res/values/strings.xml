@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ConstruFácil</string>
+
+    <string name="navigation_drawer_open">Abrir menu lateral</string>
+    <string name="navigation_drawer_close">Fechar menu lateral</string>
+
+    <string name="action_settings">Configurações</string>
+
+    <string name="unknown_response">Unexpected onActivityResult response code</string>
+    <string name="unknown_sign_in_response">Unknown response from AuthUI sign-in</string>
+    <string name="sign_in_cancelled">login cancelado</string>
+    <string name="no_internet_connection">Sem conexão de internet</string>
+    <string name="signed_in_header">Você está logado!</string>
+    <string name="sign_out">Logout</string>
+    <string name="delete_account_label">Deletar conta</string>
+    <string name="sign_out_failed">Falha no logout</string>
+    <string name="delete_account_failed">falha ao deletar conta</string>
+    <string name="unknown_error">Ocorreu um erro desconhecido. Reinicie o aplicativo.</string>
+</resources>

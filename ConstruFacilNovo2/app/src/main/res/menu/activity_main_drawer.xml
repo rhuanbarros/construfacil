@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_power_settings_new_black_24dp"
+            android:title="Logout" />
+        <item
+            android:id="@+id/nav_deletar_conta"
+            android:icon="@drawable/ic_delete_forever_black_24dp"
+            android:title="Deletar conta" />
+    </group>
+
+    <item android:title="Comunicação">
+        <menu>
+            <item
+                android:id="@+id/nav_cria_lista"
+                android:icon="@drawable/ic_note_add_black_24dp"
+                android:title="Criar lista de materiais" />
+            <item
+                android:id="@+id/nav_listas"
+                android:icon="@drawable/ic_description_black_24dp"
+                android:title="Listas de materiais já enviadas" />
+            <item
+                android:id="@+id/nav_enviar"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Enviar lista para lojas" />
+        </menu>
+    </item>
+
+</menu>
