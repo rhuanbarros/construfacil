@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ConstruFacilV3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="htmlItemCima"><![CDATA[<tr><td class=tg-dzk6>]]></string>
+    <string name="htmlItemMeio"><![CDATA[</td><td class=tg-dzk6>]]></string>
+    <string name="htmlItemBaixo"><![CDATA[</td></tr>]]></string>
+    <string name="clique_no_item_para_incluir_na_lista">Clique no item para incluir na lista</string>
+    <string name="clique_no_item_para_remover_da_lista">Clique no item para remover da lista</string>
+    <string name="digite_aqui_para_pesquisar_um_item">Digite aqui para pesquisar um item</string>
+    <string name="android_studio">Android Studio</string>
+    <string name="android_studio_android_com">android.studio@android.com</string>
+    <string name="lancamento_sucesso">Lançamento efetuado com sucesso</string>
+
+</resources>
