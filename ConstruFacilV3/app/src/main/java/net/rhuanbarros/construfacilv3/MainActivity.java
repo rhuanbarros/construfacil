@@ -78,10 +78,10 @@ public class MainActivity extends AppCompatActivity
         nomeDoUsuario = ANONYMOUS;
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
-        mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference().child(mFirebaseUser.getUid()).child("listasSalvas");
 
         boolean usuarioLogado = mFirebaseUser != null;
         if (usuarioLogado) {
+            mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference().child(mFirebaseUser.getUid()).child("listasSalvas");
             montaDrawer();
             montaBotaoFlutuante();
             colocaDadosUsarioNaView();
