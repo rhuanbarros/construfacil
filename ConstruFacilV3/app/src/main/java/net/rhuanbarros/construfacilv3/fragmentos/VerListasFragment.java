@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -60,7 +62,8 @@ public class VerListasFragment extends Fragment {
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.show();
 
-        DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference().child("listasSalvas");
+        FirebaseUser mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference().child(mFirebaseUser.getUid()).child("listasSalvas");
         final List<Lista> listasSalvas = new ArrayList<>();
 
         mFirebaseDatabaseReference.addValueEventListener(new ValueEventListener() {

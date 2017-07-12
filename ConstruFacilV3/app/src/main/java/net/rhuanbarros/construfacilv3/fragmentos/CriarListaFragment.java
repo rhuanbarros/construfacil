@@ -21,6 +21,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -76,7 +78,8 @@ public class CriarListaFragment extends Fragment {
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.show();
 
-        DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference().child("listaNova");
+        FirebaseUser  mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference().child(mFirebaseUser.getUid()).child("listaNova");
         //CRIAR LISTA DA DIREITA
         final RecyclerView criarListaRecyclerView = (RecyclerView) getView().findViewById(R.id.criar_lista_recyclerview);
         criarListaRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

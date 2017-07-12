@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,10 +31,13 @@ import java.util.Map;
 public class CatalogoRecyclerAdapter extends RecyclerView.Adapter<CatalogoRecyclerAdapter.ViewHolder > {
     private static final String TAG = "CatalogoRecyclerAdapter";
     private final List<ItemLista> lista;
-    static final DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference().child("listaNova");
+    static DatabaseReference mFirebaseDatabaseReference;
+    private static FirebaseUser mFirebaseUser;
 
     public CatalogoRecyclerAdapter(List<ItemLista> listaRecebida) {
         lista = listaRecebida;
+        mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference().child(mFirebaseUser.getUid()).child("listaNova");
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

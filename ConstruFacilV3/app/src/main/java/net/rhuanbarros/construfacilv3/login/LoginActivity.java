@@ -1,5 +1,6 @@
 package net.rhuanbarros.construfacilv3.login;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -72,6 +73,10 @@ public class LoginActivity extends AppCompatActivity  implements GoogleApiClient
     private void login() {
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGN_IN);
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Carregando dados do servidor");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
     }
 
     @Override

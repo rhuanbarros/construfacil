@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity
         GoogleApiClient.OnConnectionFailedListener {
     private static final String TAG = "MainActivity";
 
-    static final DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference().child("listasSalvas");
+    static DatabaseReference mFirebaseDatabaseReference;
     static final DatabaseReference mFirebaseDatabaseReferenceListaNova = FirebaseDatabase.getInstance().getReference();
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity
         nomeDoUsuario = ANONYMOUS;
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference().child(mFirebaseUser.getUid()).child("listasSalvas");
 
         boolean usuarioLogado = mFirebaseUser != null;
         if (usuarioLogado) {
@@ -173,7 +174,7 @@ public class MainActivity extends AppCompatActivity
                             mFirebaseDatabaseReference.push().setValue(listaNova);
 
                             //LIMPA O CRIAR LISTA
-                            mFirebaseDatabaseReferenceListaNova.child("listaNova").removeValue();
+                            mFirebaseDatabaseReferenceListaNova.child(mFirebaseUser.getUid()).child("listaNova").removeValue();
 
                         } catch (Exception e) {
                             Log.e("SendMail", e.getMessage(), e);

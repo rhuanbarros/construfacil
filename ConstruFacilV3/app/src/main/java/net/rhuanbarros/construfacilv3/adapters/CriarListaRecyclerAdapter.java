@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,10 +34,14 @@ import static net.rhuanbarros.construfacilv3.adapters.CatalogoRecyclerAdapter.mF
 public class CriarListaRecyclerAdapter extends RecyclerView.Adapter<CriarListaRecyclerAdapter.ViewHolder > {
     private static final String TAG = "CriarListaRecAdap";
     public static List<ItemLista> lista;
-    static final DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference().child("listaNova");
+    //static final DatabaseReference mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference().child("listaNova");
+    static DatabaseReference mFirebaseDatabaseReference;
+    private static FirebaseUser mFirebaseUser;
 
     public CriarListaRecyclerAdapter(List<ItemLista> lista) {
         CriarListaRecyclerAdapter.lista = lista;
+        mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference().child(mFirebaseUser.getUid()).child("listaNova");
     }
 
     @Override
